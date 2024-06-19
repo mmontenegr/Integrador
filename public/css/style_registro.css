@@ -1,0 +1,412 @@
+*{
+    text-decoration: none;
+}
+
+body {
+    background-color: white;
+    margin: 0;
+    width: 100%;
+  }
+  
+  header {
+    width: 100%;
+    margin: 0;
+  }
+  
+  .headercontainer {
+    background: antiquewhite;
+    display: flex;
+    align-items: center;
+  }
+  
+  #logo {
+    width: 15%;
+    margin-left: 15px;
+  }
+  
+  .righteous-regular {
+    font-family: "Righteous", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    color: rgb(101, 43, 226);
+    font-size: 50px;
+    text-align: center;
+    width: 60%;
+  }
+  
+  #pets {
+    max-width: 25%;
+    position: relative;
+    right: 35px;
+  }
+  
+  nav {
+    width: 100%;
+    background-color: rgb(136, 93, 230);
+    margin: 0;
+    justify-content: center;
+    box-sizing: content-box !important;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  
+  nav a {
+    text-decoration: none;
+    color: antiquewhite;
+    margin: 10px 5px;
+    padding: 12px;
+    line-height: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+    white-space: nowrap;
+    text-align: center;
+   
+  }
+  
+  nav a:hover {
+    background-color: rgb(60, 57, 57);
+    border-radius: 15px;
+  }
+  
+  #ingreso {
+    background-color: rgb(177, 8, 172);
+    border-radius: 15px;
+  }
+  
+  #ingreso:hover {
+    color: aqua;
+    transform: scale(1.01);
+  }
+  .menu-hamburguesa button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+  }
+  
+  .icono-menu {
+    font-size: 40px;
+    color: rgb(101, 43, 226);
+    margin-left: 5px;
+  }
+  
+  .opciones-menu {
+    background-color: transparent;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+  }
+  
+  .opciones-menu ul {
+    padding: 1px;
+    list-style-type: none;
+  }
+  
+  
+  .opciones-menu a {
+    color: rgb(101, 43, 226);
+    background-color: transparent;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 0 20px;
+    padding: 20px;
+    line-height: 40px;
+  }
+  
+  .opciones-menu a :hover {
+    background-color: antiquewhite;
+    border-radius: 10%;
+  }
+
+.container {
+    width: 100%;
+    height: 90vh;
+    background-image: url(../otrasFotos/rastroPatitas.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.contenido {
+    width: 100%;
+    max-width: 400px;
+    background-color: #2C2F35;
+    padding: 20px 60px 50px;
+    text-align: center;
+    border-radius: 25px;
+}
+
+.contenido h1 {
+    font-size: 30px;
+    margin-bottom: 70px;
+    color: #FFFFFF;
+    position: relative;
+
+}
+
+.contenido h1::after {  /* para poder agregar elementos*/
+content: ''; /*elemento de la de */
+width: 120px;
+height: 4px;
+border-radius: 3px;
+background: rgb(115, 58, 238);
+position: absolute;
+bottom: -12px;
+left: 50%;
+transform: translateX(-50%);
+}
+
+.inputs {
+    background-color: #dcdddf;
+    margin: 25px 0;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 50px;
+}
+
+input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: none;
+    padding: 10px 15px;
+    color: #2C2F35;
+}
+
+input:placeholder {
+    color: #2C2F35;
+}
+
+.inputs i {
+    margin-left: 15px;
+    color: rgb(115, 58, 238);
+
+}
+
+.btnInput {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+
+
+.btnInput button {
+    margin-top: ;
+    flex-basis: 48%;
+    font-size: 16px;
+    background-color: rgb(115, 58, 238);
+    color: #FFFFFF;
+    height: 40px;
+    border-radius: 10px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+.grupo {
+    height: auto;
+}
+
+.btnInput a {
+    color: #FFFFFF;
+}
+
+#gmail img {
+    width: 7%;
+    height: 7%;
+}
+
+#gmail {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    margin-left: 10px;
+}
+
+#gmail p {
+    font-size: 15px;
+    text-align: left;
+    margin-left: 3px;
+    color: brown;
+}
+
+#face img {
+    width: 7%;
+    height: 7%;
+}
+
+#face {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    margin-left: 10px;
+}
+
+#face p {
+    font-size: 15px;
+    text-align: left;
+    margin-left: 3px;
+    color: rgb(115, 58, 238);
+}
+
+
+#imsola img {
+    display: flex;
+    margin: 0 auto;
+    max-width: 300px;
+    position: relative;
+    bottom: -25px;
+    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.5));
+    z-index: 1;
+  }
+  
+  .infomrfooter {
+    background-color: antiquewhite;
+    width: 100%;
+  
+  }
+  
+  #redes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding-top: 3%;
+    padding-bottom: 10px;
+  }
+  
+  #redes img {
+    margin: 0 15px;
+    width: 25px;
+    padding: 5px;
+    box-sizing: content-box !important;
+  }
+  
+  #redes :hover {
+    transform: scale(1.1);
+    transition: 0.4s;
+  }
+  
+  #p1_footer {
+    text-align: center;
+    font-size: 15px;
+    color: rgb(108, 51, 242);
+    margin: 0 5px;
+    padding-bottom: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  #p2_footer {
+    text-align: center;
+    font-size: 15px;
+    color: rgb(108, 51, 242);
+    margin: 0 5px;
+    padding-bottom: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  .whatsapp img {
+    filter: drop-shadow(2px 4px 5px rgba(0, 0, 0, 0.5));
+  }
+  
+  .whatsapp {
+    position: fixed;
+  }
+  
+  @media only screen and (min-width:769px) {
+    #logo {
+      width: 15%;
+    }
+  
+    .icono-menu {
+      display: none;
+    }
+  
+  
+    #p2_footer {
+      display: none;
+    }
+  
+  
+    #pets {
+      top: 19px;
+      filter: drop-shadow(10px 10px 10px rgb(69, 68, 68));
+    }
+  
+    .whatsapp img {
+      width: 50%;
+    }
+  
+    .whatsapp {
+      bottom: 1%;
+      margin-left: 90%;
+    }
+  }
+  
+  
+  @media only screen and (max-width: 769px) {
+  
+    #logo {
+      width: 25%;
+    }
+  
+    .righteous-regular {
+      font-size: 1.9rem;
+    }
+  
+   
+  
+  
+  
+    nav {
+      display: none;
+    }
+  
+    #pets {
+      display: none;
+    }
+   h2 {
+    font-size: 1.4rem;
+   }
+  
+   
+    .whatsapp img {
+      max-width: 100%;
+    }
+  
+    .whatsapp {
+      bottom: 1%;
+      margin-left: 85%;
+    }
+  
+   
+    #p1_footer {
+      display: none;
+    }
+  
+  }
+  
+  @media only screen and (max-width: 360px) {
+  
+  
+    #imsola img {
+      display: none;
+    }
+  
+    
+    .whatsapp img {
+      max-width: 100%;
+    }
+  
+  }
+  
+  
