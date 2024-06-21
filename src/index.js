@@ -1,5 +1,6 @@
 // Importo el modulo express
 const express = require ('express');
+require('dotenv').config();
 
 // Importo el enrutador de Especialidades desde el archivo routes/especialidadesRoutes
 const especialidadesRoutes = require('./routes/especialidadesRoutes');
@@ -28,7 +29,7 @@ app.use('/personas', personasRoutes);
 app.use('/servicios', serviciosRoutes);
 
 // Defino el puerto en el que el servidor escucharás las peticiones
-const port = process.env.DB_PORT;
+const port = process.env.DB_PORT || 4000;
 
 // Inicio el servidor y lo configuro para escuche en el puerto definido
 app.listen(port, () => {
