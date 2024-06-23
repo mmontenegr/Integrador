@@ -143,6 +143,32 @@ function validaNombre() {
       contrasena1,
     ];
     console.log(datos); // Imprime los datos en la consola
+
+    /*fetch(`${apiUrl}/personas`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nombre, email })
+            })
+            .then(response => response.json())
+            .then(() => {
+                document.getElementById('formulario').reset();
+                fetchPersonas();
+            });
+
+    fetch(`${apiUrl}/usuarios`, {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ title, director, year, genre, image })
+          })
+          .then(response => response.json())
+          .then(() => {
+              document.getElementById('movie-form').reset();
+              fetchMovies();
+          });*/
   }
   
   

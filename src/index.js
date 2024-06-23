@@ -25,6 +25,8 @@ app.use('/especialidades', especialidadesRoutes);
 app.use('/profesionales', profesionalesRoutes);
 // Defino la ruta de personas y llamo al router para manejar las rutas que comiencen con /personas
 app.use('/personas', personasRoutes);
+// Defino la ruta de usuarios y llamo al router para manejar las rutas que comiencen con /usuarios
+app.use('/usuarios', usuariosRoutes);
 // Defino la ruta de servicios y llamo al router para manejar las rutas que comiencen con /servicios
 app.use('/servicios', serviciosRoutes);
 

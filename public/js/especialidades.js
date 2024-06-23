@@ -2,7 +2,7 @@
 //console.log(process.env.DB_PORT);
 const apiUrl = 'http://localhost:3000';
 
-var conn=require('./connection');
+//var conn=require('./connection');
 
 function fetchEspecialidades() {
     fetch(`${apiUrl}/especialidades`)

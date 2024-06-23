@@ -1,3 +1,5 @@
+const apiUrl = 'http://localhost:3000';
+
 function mostrarMenu() {
   const menuOpciones = document.querySelector('.opciones-menu');
   if (menuOpciones.style.display === 'none') {
@@ -171,7 +173,7 @@ function validaciones() {
 
   if (validaNombre() && validaApellido() && validaEmail() && validaTelefono() && validaTipoContactoSeleccionado() && validaMensaje() && validaRespuesta()) {
     // Todos los campos están llenos, se procede con el envío del formulario
-    guardarDatos(nombre + " " + apellido, email, telefono, elegido, mensaje, contactoSeleccionado);
+    guardarDatos(nombre, apellido, email, telefono, elegido, mensaje, contactoSeleccionado);
     Swal.fire({
       title: "¡Gracias!",
       text: "Pronto nos pondremos en contacto con Ud.",
@@ -184,16 +186,31 @@ function validaciones() {
 }
 
 // Función para guardar los datos del formulario
-function guardarDatos(nombreYApellido, email, telefono, elegido, mensaje, contactoSeleccionado) {
+function guardarDatos(nombre, apellido, email, telefono, elegido, mensaje, contactoSeleccionado) {
   const datos = [
-    nombreYApellido,
+    nombre + " " + apellido,
     email,
     telefono,
     elegido,
     mensaje,
     contactoSeleccionado,
   ];
+  const direccion = "";
+
   console.log(datos); // Imprime los datos en la consola
+
+  // llamar a funcion que guarde los datos de la persona
+  fetch(`${apiUrl}/personas`, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({nombre, apellido, direccion, telefono, email })
+  })
+  .then(response => response.json())
+  .then(() => {
+      console.log("persona insertada");
+  });
 }
 // Detector de eventos para el botón de envío del formulario
 //el código se ejecuta dentro de la función window.onload, la cual se dispara una vez que la página ha terminado de cargarse
