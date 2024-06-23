@@ -1,11 +1,11 @@
 //require('dotenv').config();
 //console.log(process.env.DB_PORT);
-//const apiUrl = 'http://localhost:3000';
+apiUrl = "http://"+window.location.host;
 
 //var conn=require('./connection');
 
 function fetchEspecialidades() {
-    fetch(`/especialidades`)
+    fetch(`${apiUrl}/especialidades`)
 
         .then(response => response.json())
         .then(data => {
