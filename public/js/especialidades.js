@@ -5,6 +5,7 @@ apiUrl = "http://"+window.location.host;
 //var conn=require('./connection');
 
 function fetchEspecialidades() {
+    alert(`${apiUrl}/especialidades`);
     fetch(`${apiUrl}/especialidades`)
 
         .then(response => response.json())
