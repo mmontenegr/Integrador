@@ -1,6 +1,6 @@
 //require('dotenv').config();
 //console.log(process.env.DB_PORT);
-apiUrl = "http://"+window.location.host;
+apiUrl = window.location.host;
 
 //var conn=require('./connection');
 
