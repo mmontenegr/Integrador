@@ -21,4 +21,40 @@ const getPersona = (req, res) => {
     }) ;
  };
 
- module.exports = {getPersonas, getPersona};
+ const createPersona = (req, res) => {
+   //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
+   const {x_persona} = req.body;
+   const sql = "insert into t_personas (x_especialidad) values (?)";
+   // el metodo query recibe la sentencia de sql y devuelve el resultado en results
+   db.query(sql, [x_especialidad], (err, results) => {
+    if (err) throw err;
+    res.json({message: "Especialidad creada con id " + results.insertId, id_especialidad: results.insertId});
+   }) ;
+};
+
+/*
+const updateMovie = (req, res) => {
+   //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
+   const {id} = req.params;
+   const {title, director, anio} = req.body;
+   const sql = "update movies set title = ?, director = ?, anio = ? where id = ?";
+   // el metodo query recibe la sentencia de sql y devuelve el resultado en results
+   db.query(sql, [title, director, anio, id], (err, results) => {
+    if (err) throw err;
+    res.json({message: 'Pelicula actualizada'});
+   }) ;
+};
+
+const deleteMovie = (req, res) => {
+   //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
+   const {id} = req.params;
+   const sql = "delete from movies where id = ?";
+   // el metodo query recibe la sentencia de sql y devuelve el resultado en results
+   db.query(sql, [id], (err, results) => {
+    if (err) throw err;
+    res.json({message: 'Pelicula eliminada'});
+   }) ;
+};
+*/
+
+ module.exports = {getPersonas, getPersona, createPersona};
