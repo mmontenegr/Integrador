@@ -1,31 +1,8 @@
-const apiUrl = 'http://localhost:3000';
+//const apiUrl = 'http://localhost:3000';
 
-document.getElementById('movie-form').addEventListener('submit', (event) => {
-    event.preventDefault();
-    const title = document.getElementById('movie-title').value;
-    const director = document.getElementById('movie-director').value;
-    const year = document.getElementById('movie-year').value;
-    const genre = document.getElementById('movie-genre').value;
-    const image = document.getElementById('movie-image').value;
-
-    fetch(`${apiUrl}/movies`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ title, director, year, genre, image })
-    })
-    .then(response => response.json())
-    .then(() => {
-        document.getElementById('movie-form').reset();
-        fetchMovies();
-    });
-});
-
-
-
-function fetchProfesionales() {
-    fetch(`${apiUrl}/profesionales`)
+function fetchUsarios() {
+    //fetch(`${apiUrl}/profesionales`)
+    fetch(`/usuarios`)    
 
         .then(response => response.json())
         .then(data => {
@@ -68,14 +45,4 @@ function fetchProfesionales() {
             });
         });
 }
-fetchProfesionales();
-
-/*
-<div class="card">
-                        <img src="./otrasFotos/mujer1(1).jpg" alt="Dra. Rodríguez">
-                    <div class="texto">
-                        <h4>Verónica Rodríguez</h4>
-                        <p>Directora.</p>
-                    </div>
-                </div>
-*/                
+fetchUsuarios();

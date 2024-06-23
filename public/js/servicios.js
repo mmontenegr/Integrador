@@ -1,7 +1,8 @@
-const apiUrl = 'http://localhost:3000';
+//const apiUrl = 'http://localhost:3000';
 
 function fetchServicios() {
-    fetch(`${apiUrl}/servicios`)
+    //fetch(`${apiUrl}/servicios`)
+    fetch(`/servicios`)    
 
         .then(response => response.json())
         .then(data => {
