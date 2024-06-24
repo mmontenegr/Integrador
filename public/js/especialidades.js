@@ -5,8 +5,8 @@ apiUrl = window.location.host;
 //var conn=require('./connection');
 
 function fetchEspecialidades() {
-    alert(`${apiUrl}/especialidades`);
-    fetch(`${apiUrl}/especialidades`)
+    //alert(`${apiUrl}/especialidades`);
+    fetch(`/especialidades`)
 
         .then(response => response.json())
         .then(data => {
