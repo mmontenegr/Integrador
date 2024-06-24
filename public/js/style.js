@@ -169,10 +169,28 @@ function validaciones() {
   const mensaje = mensajeInput.value.trim(); // Accede al valor y elimina espacios
   const contactoSelect = document.querySelector('.form-selectb');
   const contactoSeleccionado = contactoSelect.value;
+  const direccion = "";
 
 
   if (validaNombre() && validaApellido() && validaEmail() && validaTelefono() && validaTipoContactoSeleccionado() && validaMensaje() && validaRespuesta()) {
     // Todos los campos están llenos, se procede con el envío del formulario
+    fetch(`${apiUrl}/personas`, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({nombre,apellido,direccion,telefono,email})
+    })
+    .then(response => response.json())
+    .then(() => {
+      Swal.fire({
+        title: "¡Gracias!",
+        text: "Pronto nos pondremos en contacto con Ud.",
+        icon: "success"
+      });
+      formulario.reset(); // Limpia el formulario después del envío
+    });
+    /*
     guardarDatos(nombre, apellido, email, telefono, elegido, mensaje, contactoSeleccionado);
     Swal.fire({
       title: "¡Gracias!",
@@ -180,6 +198,7 @@ function validaciones() {
       icon: "success"
     });
     formulario.reset(); // Limpia el formulario después del envío
+    */
   } else {
     return false; // Si hay un error de validación, evita el envío del formulario
   }
@@ -195,22 +214,7 @@ function guardarDatos(nombre, apellido, email, telefono, elegido, mensaje, conta
     mensaje,
     contactoSeleccionado,
   ];
-  const direccion = "";
-
   console.log(datos); // Imprime los datos en la consola
-
-  // llamar a funcion que guarde los datos de la persona
-  fetch(`${apiUrl}/personas`, {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({nombre, apellido, direccion, telefono, email })
-  })
-  .then(response => response.json())
-  .then(() => {
-      console.log("persona insertada");
-  });
 }
 // Detector de eventos para el botón de envío del formulario
 //el código se ejecuta dentro de la función window.onload, la cual se dispara una vez que la página ha terminado de cargarse

@@ -23,10 +23,11 @@ const getPersona = (req, res) => {
 
  const createPersona = (req, res) => {
    //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
-   const {nombre, apellido, direccion, telefono, email} = req.body;
-   const sql = "insert into t_personas (nombre, apellido, direccion, telefono, miemail) values (?,?,?,?,?)";
+   const {nombre, apellido, direccion, telefono, mail} = req.body;
+   console.log("mail recibido: " + req.body.mail);
+   const sql = "insert into t_personas (nombre, apellido, direccion, telefono, mail) values (?,?,?,?,?)";
    // el metodo query recibe la sentencia de sql y devuelve el resultado en results
-   db.query(sql, [nombre, apellido, direccion, telefono, email], (err, results) => {
+   db.query(sql, [nombre, apellido, direccion, telefono, mail], (err, results) => {
     if (err) throw err;
     res.json({message: "Persona creada con id " + results.insertId, 
               id_persona: results.insertId});
