@@ -8,8 +8,10 @@ const especialidadesRoutes = require('./routes/especialidadesRoutes');
 const profesionalesRoutes = require('./routes/profesionalesRoutes');
 // Importo el enrutador de Personas desde el archivo routes/personasRoutes
 const personasRoutes = require('./routes/personasRoutes');
-// Importo el enrutador de Servicios desde el archivo routes/srviciosRoutes
+// Importo el enrutador de Servicios desde el archivo routes/serviciosRoutes
 const serviciosRoutes = require('./routes/serviciosRoutes');
+// Importo el enrutador de Contactos desde el archivo routes/contactosRoutes
+const contactosRoutes = require('./routes/contactosRoutes');
 
 // Creo una instancia de una aplicación Express
 const app = express();
@@ -25,6 +27,8 @@ app.use('/especialidades', especialidadesRoutes);
 app.use('/profesionales', profesionalesRoutes);
 // Defino la ruta de personas y llamo al router para manejar las rutas que comiencen con /personas
 app.use('/personas', personasRoutes);
+// Defino la ruta de contactos y llamo al router para manejar las rutas que comiencen con /contactos
+app.use('/contactos', contactosRoutes);
 // Defino la ruta de usuarios y llamo al router para manejar las rutas que comiencen con /usuarios
 //app.use('/usuarios', usuariosRoutes);
 // Defino la ruta de servicios y llamo al router para manejar las rutas que comiencen con /servicios

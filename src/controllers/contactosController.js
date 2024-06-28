@@ -1,8 +1,8 @@
 // El objeto db posee los metodos para conectar con la base de datos
 const db = require('../db/db')
 
-const getPersonas = (req, res) => {
-   const sql = "SELECT * FROM t_personas WHERE f_baja IS NULL";
+const getContactos = (req, res) => {
+   const sql = "SELECT * FROM t_contactos WHERE f_baja IS NULL";
    // el metodo query recibe la sentencia de sql y devuelve el resultado en results
    db.query(sql, (err, results) => {
     if (err) throw err;
@@ -10,10 +10,10 @@ const getPersonas = (req, res) => {
    }) ;
 };
 
-const getPersona = (req, res) => {
+const getContacto = (req, res) => {
     //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
     const {id} = req.params;
-    const sql = "SELECT * FROM t_personas WHERE id_persona = ? AND f_baja IS NULL";
+    const sql = "SELECT * FROM t_contactos WHERE id_Contacto = ? AND f_baja IS NULL";
     // el metodo query recibe la sentencia de sql y devuelve el resultado en results
     db.query(sql, [id], (err, results) => {
      if (err) throw err;
@@ -21,16 +21,16 @@ const getPersona = (req, res) => {
     }) ;
  };
 
- const createPersona = (req, res) => {
+ const createContacto = (req, res) => {
    //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
-   const {nombre, apellido, direccion, telefono, mail} = req.body;
+   const {id_persona, tipo_contacto, x_contacto} = req.body;
    //console.log("mail recibido: " + req.body.mail);
-   const sql = "insert into t_personas (nombre, apellido, direccion, telefono, mail) values (?,?,?,?,?)";
+   const sql = "insert into t_contactos (id_persona, tipo_contacto, x_contacto) values (?,?,?)";
    // el metodo query recibe la sentencia de sql y devuelve el resultado en results
-   db.query(sql, [nombre, apellido, direccion, telefono, mail], (err, results) => {
+   db.query(sql, [id_persona, tipo_contacto, x_contacto], (err, results) => {
     if (err) throw err;
-    res.json({message: "Persona creada con id " + results.insertId, 
-              id_persona: results.insertId});
+    res.json({message: "Contacto creada con id " + results.insertId, 
+              id_contacto: results.insertId});
    }) ;
 };
 
@@ -59,4 +59,4 @@ const deleteMovie = (req, res) => {
 };
 */
 
- module.exports = {getPersonas, getPersona, createPersona};
+ module.exports = {getContactos, getContacto, createContacto};

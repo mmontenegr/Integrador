@@ -174,6 +174,7 @@ function validaciones() {
 
   if (validaNombre() && validaApellido() && validaEmail() && validaTelefono() && validaTipoContactoSeleccionado() && validaMensaje() && validaRespuesta()) {
     // Todos los campos están llenos, se procede con el envío del formulario
+    guardarDatos(nombre, apellido, email, telefono, elegido, mensaje, contactoSeleccionado);
     fetch(`${apiUrl}/personas`, {
       method: 'POST',
       headers: {
@@ -182,14 +183,31 @@ function validaciones() {
       body: JSON.stringify({nombre,apellido,direccion,telefono,email})
     })
     .then(response => response.json())
-    .then(() => {
-      Swal.fire({
-        title: "¡Gracias!",
-        text: "Pronto nos pondremos en contacto con Ud.",
-        icon: "success"
-      });
-      formulario.reset(); // Limpia el formulario después del envío
+    .then((persona) => {
+          console.log(persona);
+          const id = persona.id_persona;
+          ////////////////////////////////////////
+          //Inserto el contacto
+          fetch(`${apiUrl}/contactos`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({id, elegido, mensaje})
+          })
+          .then(response2 => response2.json())
+          .then((contacto) => {
+            console.log(contacto);
+            Swal.fire({
+              title: "¡Gracias " + nombre + "!",
+              text: "Pronto nos pondremos en contacto",
+              icon: "success"
+            });
+            formulario.reset(); // Limpia el formulario después del envío
+          });
+          ////////////////////////////////////////          
     });
+
     /*
     guardarDatos(nombre, apellido, email, telefono, elegido, mensaje, contactoSeleccionado);
     Swal.fire({
