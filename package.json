@@ -4,11 +4,11 @@
   "description": "Codo a Codo - Comisión 24122 - Grupo 2",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Ana Sosa / Mariela Montenegro",
+  "author": "Ana Sosa / Mariela Montenegro / Maria del Carmen Rohr",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.4.5",
