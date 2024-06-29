@@ -3,7 +3,7 @@ const express = require ('express');
 require('dotenv').config();
 
 // Importo el enrutador de Especialidades desde el archivo routes/especialidadesRoutes
-const especialidadesRoutes = require('./src/routes/especialidadesRoutes');
+const especialidadesRoutes = require('src/routes/especialidadesRoutes');
 // Importo el enrutador de Profesionales desde el archivo routes/profesionalesRoutes
 const profesionalesRoutes = require('./src/routes/profesionalesRoutes');
 // Importo el enrutador de Personas desde el archivo routes/personasRoutes
