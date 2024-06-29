@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000';
+//const apiUrl = 'http://localhost:3000';
 
 function mostrarMenu() {
   const menuOpciones = document.querySelector('.opciones-menu');
@@ -175,7 +175,7 @@ function validaciones() {
   if (validaNombre() && validaApellido() && validaEmail() && validaTelefono() && validaTipoContactoSeleccionado() && validaMensaje() && validaRespuesta()) {
     // Todos los campos están llenos, se procede con el envío del formulario
     guardarDatos(nombre, apellido, email, telefono, elegido, mensaje, contactoSeleccionado);
-    fetch(`${apiUrl}/personas`, {
+    fetch(`/personas`, {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -188,7 +188,7 @@ function validaciones() {
           const id = persona.id_persona;
           ////////////////////////////////////////
           //Inserto el contacto
-          fetch(`${apiUrl}/contactos`, {
+          fetch(`/contactos`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
