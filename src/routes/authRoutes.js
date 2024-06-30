@@ -12,9 +12,7 @@ const authController = require('../middleWares/authMiddleware');
 //Ruta para iniciar sesion con un usuario
 //router.post('/login', authController.login);
 //Ruta protegida
-//router.get('/protected', authMiddleware, (req, res) => {
-//    res.status(200).send(`Hola usuario ${req.userId}`);
-//});
+//router.get('/protected', authMiddleware, (req, res) => {res.status(200).send(`Hola usuario ${req.userId}`);});
 
 // Exporto el router para que pueda ser utilizado en otros archivos
 module.exports = router;
