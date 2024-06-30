@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 //Importo el módulo bcryptjs para encriptar las contraseñas de los usuarios
 const bcrypt = require('bcryptjs');
 //Importe el array de usuarios
-const users = require('../db/userDataModel');
+const users = require('../models/userModel');
 //Importo la configuracion
 const config = require('../config/config');
 
@@ -25,4 +25,22 @@ const register =  (req, res) => {
     response.status(201).send( { auth:true, token});
 };
 
-module.exports = { register };
+//Funcion para iniciar sesion
+const login =  (req, res) => {
+    //Recupero usuario y contraseña del req
+    const { username, password } = req.body;
+
+    //Busco el usuario
+    const usuario = users.find (u => u.username === username );
+    //Si el usuario no se encuentra
+    if (!usuario) return res.status(404).send ('Usuario no encontrado'); 
+    //Comparo la contraseña ingresa con la almacenada
+    const contraseñaValida = bcrypt.compareSync (password, usuario.password);
+    if (!contraseñaValida) return res.status(401).send ({auth: false, token: null});
+
+    //Genero un token con el id del usuario
+    const token = jwt.sign( { id: usuario.id }, config.secretKey, { expiresIn: config.expiresIn}  );
+    //Envio el token al cliente
+    response.status(200).send( { auth:true, token});
+};
+module.exports = {register, login};
