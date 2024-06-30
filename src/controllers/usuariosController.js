@@ -23,10 +23,10 @@ const getUsuario = (req, res) => {
 
  const createUsuario = (req, res) => {
    //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
-   const {id_persona, usuario, contraseña, recordatorio_contraseña} = req.body;
+   const {id, email, contrasena1, recordatorio_contraseña} = req.body;
    const sql = "insert into t_usuarios (id_persona, usuario, contraseña, recordatorio_contraseña) values (?,?,?,?)";
    // el metodo query recibe la sentencia de sql y devuelve el resultado en results
-   db.query(sql, [id_persona, usuario, contraseña, recordatorio_contraseña], (err, results) => {
+   db.query(sql, [id, email, contrasena1, recordatorio_contraseña], (err, results) => {
     if (err) throw err;
     res.json({message: "Usurio creada con id " + results.insertId, id_usuario: results.insertId});
    }) ;

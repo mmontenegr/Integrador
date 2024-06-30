@@ -116,12 +116,75 @@ function validaNombre() {
     const email = emailInput.value.trim();
     const contrasena1Input = document.getElementById('password1'); // Obtiene el elemento input
     const contrasena1 = contrasena1Input.value.trim(); // Accede al valor y elimina espacios
+    const direccion = "";
+    const apellido = "";
+    const telefono = "";
+    const recordatorio_contraseña = "";
   
   
     if (validaNombre() && validaEmail() && validaContrasena()){
       // Todos los campos están llenos, se procede con el envío del formulario
       guardarDatos(nombre, email, contrasena1);
-      Swal.fire({
+      postPersona = async () => {
+        //const location = window.location.hostname;
+        const settings = {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({nombre,apellido,direccion,telefono,email})
+         };
+        try {
+            const fetchResponse = await fetch(`/personas`, settings);
+            const persona = await fetchResponse.json();
+            const id = persona.id_persona;
+            ///////////////////////////////////////////////
+            postUsuario = async () => {
+                const settings = {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({id, email, contrasena1, recordatorio_contraseña})
+                };
+                try {
+                    const fetchResponse = await fetch(`/usuarios`, settings);
+                    const usuario = await fetchResponse.json();
+                    console.log(usuario);
+                    return usuario;
+                } catch (ec) {
+                    console.log("catch: " + ec) ;
+                    return ec;
+                }    
+              };
+              try{
+                    let contacto = postUsuario();
+                    Swal.fire({
+                      title: "¡Gracias!",
+                      text: "Ya estás registrado.",
+                      icon: "success",
+                      iconColor: '#7B68EE',
+                      confirmButtonText: '<a href="index.html">OK</a>',
+                      confirmButtonColor: '#7FFFD4'
+                    });
+                    formulario.reset(); // Limpia el formulario después del envío
+                  } catch (ef) {
+                      console.log("catch: " + ef) ;
+                      return ef;
+                  };
+             ///////////////////////////////////////////////          
+            return persona;
+        } catch (e) {
+            console.log("catch: " + e) ;
+            return e;
+        } ;   
+      };
+  
+      let persona = postPersona();
+  
+      /*Swal.fire({
         title: "¡Gracias!",
         text: "Ya estás registrado.",
         icon: "success",
@@ -129,7 +192,7 @@ function validaNombre() {
         confirmButtonText: '<a href="index.html">OK</a>',
         confirmButtonColor: '#7FFFD4'
       });
-      formulario.reset(); // Limpia el formulario después del envío
+      formulario.reset(); // Limpia el formulario después del envío*/
     } else {
       return false; // Si hay un error de validación, evita el envío del formulario
     }
