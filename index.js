@@ -14,6 +14,8 @@ const serviciosRoutes = require('./src/routes/serviciosRoutes');
 const contactosRoutes = require('./src/routes/contactosRoutes');
 // Importo el enrutador de Usuarios desde el archivo routes/usuariosRoutes
 const usuariosRoutes = require('./src/routes/usuariosRoutes');
+// Importo el enrutador de Auth desde el archivo routes/authRoutes
+const authRoutes = require('./src/routes/authRoutes');
 
 // Creo una instancia de una aplicación Express
 const app = express();
@@ -22,7 +24,7 @@ const app = express();
 app.use (express.json());
 // Middleware para apuntar a la carpeta public
 app.use(express.static('public'));
-
+//
 // Defino la ruta de especialidades y llamo al router para manejar las rutas que comiencen con /especialidades
 app.use('/especialidades', especialidadesRoutes);
 // Defino la ruta de profesionales y llamo al router para manejar las rutas que comiencen con /profesionales
@@ -35,6 +37,8 @@ app.use('/contactos', contactosRoutes);
 app.use('/usuarios', usuariosRoutes);
 // Defino la ruta de servicios y llamo al router para manejar las rutas que comiencen con /servicios
 app.use('/servicios', serviciosRoutes);
+// Defino la ruta de Auths y llamo al router para manejar las rutas que comiencen con /auth
+app.use('/auth', authRoutes);
 
 // Defino el puerto en el que el servidor escucharás las peticiones
 const port = process.env.DB_PORT || 4000;
