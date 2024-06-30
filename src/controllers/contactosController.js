@@ -24,7 +24,6 @@ const getContacto = (req, res) => {
  const createContacto = (req, res) => {
    //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
    const {id, elegido, mensaje, contactoSeleccionado} = req.body;
-   //console.log("mail recibido: " + req.body.mail);
    const sql = "insert into t_contactos (id_persona, tipo_contacto, x_contacto, medio_contacto) values (?,?,?,?)";
    // el metodo query recibe la sentencia de sql y devuelve el resultado en results
    db.query(sql, [id, elegido, mensaje, contactoSeleccionado], (err, results) => {
@@ -34,19 +33,19 @@ const getContacto = (req, res) => {
    }) ;
 };
 
-/*
-const updateMovie = (req, res) => {
+
+const updateContacto = (req, res) => {
    //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
    const {id} = req.params;
-   const {title, director, anio} = req.body;
-   const sql = "update movies set title = ?, director = ?, anio = ? where id = ?";
+   //const {title, director, anio} = req.body;
+   const sql = "update t_contactos set f_baja = current_timestamp(), u_baja = user() where id_contacto = ?";
    // el metodo query recibe la sentencia de sql y devuelve el resultado en results
-   db.query(sql, [title, director, anio, id], (err, results) => {
+   db.query(sql, [id], (err, results) => {
     if (err) throw err;
-    res.json({message: 'Pelicula actualizada'});
+    res.json({message: 'Contacto dado de Baja'});
    }) ;
 };
-
+/*
 const deleteMovie = (req, res) => {
    //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
    const {id} = req.params;
@@ -59,4 +58,4 @@ const deleteMovie = (req, res) => {
 };
 */
 
- module.exports = {getContactos, getContacto, createContacto};
+ module.exports = {getContactos, getContacto, createContacto, updateContacto};
