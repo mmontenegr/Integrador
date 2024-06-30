@@ -4,7 +4,7 @@ Codo a Codo - Comisión 24122 - Grupo 2
 
 # Veterinaria Patitas App
 
-Para poder hacerlo funcional deben clonar el repo y dentro de la carpeta hacer:
+Para poder hacerlo funcional se debe clonar el repo y dentro de la carpeta hacer:
 
 ```
 npm express
