@@ -23,11 +23,11 @@ const getContacto = (req, res) => {
 
  const createContacto = (req, res) => {
    //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
-   const {id_persona, tipo_contacto, x_contacto} = req.body;
+   const {id, elegido, mensaje, contactoSeleccionado} = req.body;
    //console.log("mail recibido: " + req.body.mail);
-   const sql = "insert into t_contactos (id_persona, tipo_contacto, x_contacto) values (?,?,?)";
+   const sql = "insert into t_contactos (id_persona, tipo_contacto, x_contacto, medio_contacto) values (?,?,?,?)";
    // el metodo query recibe la sentencia de sql y devuelve el resultado en results
-   db.query(sql, [id_persona, tipo_contacto, x_contacto], (err, results) => {
+   db.query(sql, [id, elegido, mensaje, contactoSeleccionado], (err, results) => {
     if (err) throw err;
     res.json({message: "Contacto creada con id " + results.insertId, 
               id_contacto: results.insertId});

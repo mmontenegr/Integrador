@@ -175,7 +175,119 @@ function validaciones() {
   if (validaNombre() && validaApellido() && validaEmail() && validaTelefono() && validaTipoContactoSeleccionado() && validaMensaje() && validaRespuesta()) {
     // Todos los campos están llenos, se procede con el envío del formulario
     guardarDatos(nombre, apellido, email, telefono, elegido, mensaje, contactoSeleccionado);
-    fetch(`/personas`, {
+
+
+    postPersona = async () => {
+      //const location = window.location.hostname;
+      const settings = {
+          method: 'POST',
+          headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({nombre,apellido,direccion,telefono,email})
+       };
+      try {
+          const fetchResponse = await fetch(`/personas`, settings);
+          const persona = await fetchResponse.json();
+          const id = persona.id_persona;
+          ///////////////////////////////////////////////
+          postContacto = async () => {
+              const settings = {
+                  method: 'POST',
+                  headers: {
+                      Accept: 'application/json',
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({id, elegido, mensaje, contactoSeleccionado})
+              };
+              try {
+                  const fetchResponse = await fetch(`/contactos`, settings);
+                  const contacto = await fetchResponse.json();
+                  console.log(contacto);
+                  return contacto;
+              } catch (ec) {
+                  console.log("catch: " + ec) ;
+                  return ec;
+              }    
+            };
+            try{
+                  let contacto = postContacto();
+                  Swal.fire({
+                    title: "¡Gracias " + nombre + "!",
+                    text: "Pronto nos pondremos en contacto",
+                    icon: "success"
+                  });
+                  formulario.reset(); // Limpia el formulario después del envío
+                } catch (ef) {
+                    console.log("catch: " + ef) ;
+                    return ef;
+                };
+           ///////////////////////////////////////////////          
+          return persona;
+      } catch (e) {
+          console.log("catch: " + e) ;
+          return e;
+      } ;   
+    };
+
+    let persona = postPersona();
+    /*try {
+      ///////////////////////////////////////////////
+      postContacto = async () => {
+          const settings = {
+              method: 'POST',
+              headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({id, elegido, mensaje})
+          };
+          try {
+              const fetchResponse = await fetch(`/contactos`, settings);
+              const contacto = await fetchResponse.json();
+              console.log(contacto);
+              return contacto;
+          } catch (e) {
+              console.log("catch: " + e) ;
+              return e;
+          }    
+        };
+        try{
+          let contacto = postContacto();
+          Swal.fire({
+            title: "¡Gracias " + nombre + "!",
+            text: "Pronto nos pondremos en contacto",
+            icon: "success"
+          });
+          formulario.reset(); // Limpia el formulario después del envío
+        } catch (e) {
+            console.log("catch: " + e) ;
+            return e;
+        };
+    
+     ///////////////////////////////////////////////
+    }catch (e) {
+                  console.log("catch: " + e) ;
+                  return e;
+    };*/
+/*
+    try{
+      let contacto = postContacto();
+      Swal.fire({
+        title: "¡Gracias " + nombre + "!",
+        text: "Pronto nos pondremos en contacto",
+        icon: "success"
+      });
+      formulario.reset(); // Limpia el formulario después del envío
+    } catch (e) {
+        console.log("catch: " + e) ;
+        return e;
+    };
+*/
+
+/*
+    fetch (`/personas`, {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -195,7 +307,7 @@ function validaciones() {
             },
             body: JSON.stringify({id, elegido, mensaje})
           })
-          .then(response2 => response2.json())
+          .then(response => response.json())
           .then((contacto) => {
             console.log(contacto);
             Swal.fire({
@@ -206,7 +318,7 @@ function validaciones() {
             formulario.reset(); // Limpia el formulario después del envío
           });
           ////////////////////////////////////////          
-    });
+    });*/
 
     /*
     guardarDatos(nombre, apellido, email, telefono, elegido, mensaje, contactoSeleccionado);
