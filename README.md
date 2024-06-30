@@ -13,6 +13,8 @@ npm mysql2
 ```
 npm install dotenv
 ```
+npm install jsonwebtoken bcryptjs
+```
 
 y poner a andar el proyecto
 
