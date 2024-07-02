@@ -1,4 +1,4 @@
 module.exports = {
-    secretKey: 'tu clave secreta',
+    secretKey: process.env.SECRETO,
     tokenExpireIn: '1h'
 };

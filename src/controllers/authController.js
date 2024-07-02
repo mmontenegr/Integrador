@@ -13,16 +13,14 @@ const register =  (req, res) => {
     const { username, password } = req.body;
     //Cifro la contraseña
     const passwordHashed = bcrypt.hashSync(password, 8) ; //'estoesunsalt');
-
     //Creo un nuevo usuario
     const nuevoUsuario = { id: users.length + 1, username, password: passwordHashed };
     //Agrego el nuevo usuario al array de usuarios
     users.push(nuevoUsuario);
-
     //Genero un token para el nuevo
-    const token = jwt.sign( { id: nuevoUsuario.id }, config.secretKey, { expiresIn: config.expiresIn}  );
+    const token = jwt.sign( { id: nuevoUsuario.id }, config.secretKey, {expiresIn: config.tokenExpireIn}  );
     //Envio el token como respuesta al usuario
-    response.status(201).send( { auth:true, token});
+    res.status(201).send( { auth:true, token});
 };
 
 //Funcion para iniciar sesion
@@ -39,8 +37,8 @@ const login =  (req, res) => {
     if (!contraseñaValida) return res.status(401).send ({auth: false, token: null});
 
     //Genero un token con el id del usuario
-    const token = jwt.sign( { id: usuario.id }, config.secretKey, { expiresIn: config.expiresIn}  );
+    const token = jwt.sign( { id: usuario.id }, config.secretKey, { expiresIn: config.tokenExpireIn}  );
     //Envio el token al cliente
-    response.status(200).send( { auth:true, token});
+    res.status(200).send( { auth:true, token});
 };
 module.exports = {register, login};
