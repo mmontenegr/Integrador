@@ -106,9 +106,7 @@ function validaNombre() {
         }
       }
 
-
-  
-    // Función para validar y enviar el formulario
+  // Función para validar y enviar el formulario
   function validaciones() {
     const nombreInput = document.getElementById('name'); // Obtiene el elemento input
     const nombre = nombreInput.value; // Accede al valor y elimina espacios
@@ -125,6 +123,7 @@ function validaNombre() {
     if (validaNombre() && validaEmail() && validaContrasena()){
       // Todos los campos están llenos, se procede con el envío del formulario
       guardarDatos(nombre, email, contrasena1);
+      //llamar JWT
       postPersona = async () => {
         //const location = window.location.hostname;
         const settings = {
@@ -206,34 +205,7 @@ function validaNombre() {
       contrasena1,
     ];
     console.log(datos); // Imprime los datos en la consola
-
-    /*fetch(`${apiUrl}/personas`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ nombre, email })
-            })
-            .then(response => response.json())
-            .then(() => {
-                document.getElementById('formulario').reset();
-                fetchPersonas();
-            });
-
-    fetch(`${apiUrl}/usuarios`, {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({ title, director, year, genre, image })
-          })
-          .then(response => response.json())
-          .then(() => {
-              document.getElementById('movie-form').reset();
-              fetchMovies();
-          });*/
   }
-  
   
   // Detector de eventos para el botón de envío del formulario
   const botonEnviar = formulario.querySelector('button[type="submit"]');
