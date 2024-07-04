@@ -32,28 +32,26 @@ const getEspecialidad = (req, res) => {
     }) ;
  };
 
-/*
- const updateMovie = (req, res) => {
-    //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
-    const {id} = req.params;
-    const {title, director, anio} = req.body;
-    const sql = "update movies set title = ?, director = ?, anio = ? where id = ?";
-    // el metodo query recibe la sentencia de sql y devuelve el resultado en results
-    db.query(sql, [title, director, anio, id], (err, results) => {
-     if (err) throw err;
-     res.json({message: 'Pelicula actualizada'});
-    }) ;
- };
+ const updateEspecialidad = (req, res) => {
+   //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
+   const {id} = req.params;
+   const sql = "update t_especialidades set f_baja = current_timestamp(), u_baja = user() where id_especialidad = ?";
+   // el metodo query recibe la sentencia de sql y devuelve el resultado en results
+   db.query(sql, [id], (err, results) => {
+    if (err) throw err;
+    res.json({message: 'Especialidad dada de Baja'});
+   }) ;
+};
 
- const deleteMovie = (req, res) => {
+ const deleteEspecialidad = (req, res) => {
     //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
     const {id} = req.params;
-    const sql = "delete from movies where id = ?";
+    const sql = "delete from t_especialidades where id_especialidad = ?";
     // el metodo query recibe la sentencia de sql y devuelve el resultado en results
     db.query(sql, [id], (err, results) => {
      if (err) throw err;
-     res.json({message: 'Pelicula eliminada'});
+     res.json({message: 'Especialidad eliminada'});
     }) ;
  };
-*/
-module.exports = {getEspecialidades, getEspecialidad, createEspecialidad/*, updateMovie, deleteMovie*/};
+
+module.exports = {getEspecialidades, getEspecialidad, createEspecialidad, updateEspecialidad, deleteEspecialidad};

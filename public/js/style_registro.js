@@ -106,6 +106,16 @@ function validaNombre() {
         }
       }
 
+   function passwRegister(usuario, clave) {
+        fetch(`/auth/register`)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(usuario => {
+
+                });
+            });
+    }; 
+
   // Función para validar y enviar el formulario
   function validaciones() {
     const nombreInput = document.getElementById('name'); // Obtiene el elemento input
@@ -113,7 +123,7 @@ function validaNombre() {
     const emailInput = document.getElementById('email');
     const email = emailInput.value.trim();
     const contrasena1Input = document.getElementById('password1'); // Obtiene el elemento input
-    const contrasena1 = contrasena1Input.value.trim(); // Accede al valor y elimina espacios
+    let contrasena1 = contrasena1Input.value.trim(); // Accede al valor y elimina espacios
     const direccion = "";
     const apellido = "";
     const telefono = "";
@@ -121,9 +131,35 @@ function validaNombre() {
   
   
     if (validaNombre() && validaEmail() && validaContrasena()){
+      
       // Todos los campos están llenos, se procede con el envío del formulario
       guardarDatos(nombre, email, contrasena1);
+
       //llamar JWT
+      const username = nombre;
+      const password = contrasena1;
+      postToken = async () => {
+        const settings = {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({username, password})
+        };
+        try {
+            const fetchResponse = await fetch(`/auth/register`, settings);
+            const clave = await fetchResponse.json();
+            console.log(clave);
+            return clave;
+        } catch (ep) {
+            console.log("catch: " + ep) ;
+            return ep;
+        }    
+      };
+      const tokenPassword = postToken();
+      console.log(tokenPassword);
+      //
       postPersona = async () => {
         //const location = window.location.hostname;
         const settings = {

@@ -8,8 +8,8 @@ const especialidadController = require('../controllers/especialidadesController'
 router.get('/', especialidadController.getEspecialidades);
 router.get('/:id', especialidadController.getEspecialidad);
 router.post('/', especialidadController.createEspecialidad);
-//router.put('/:id', especialidadController.updateEspecialidad);
-//router.delete('/:id', especialidadController.deleteEspecialidad);
+router.put('/:id', especialidadController.updateEspecialidad);
+router.delete('/:id', especialidadController.deleteEspecialidad);
 
 // Exporto el router para que pueda ser utilizado en otros archivos
 module.exports = router;
