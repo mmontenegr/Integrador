@@ -7,9 +7,9 @@ Codo a Codo - Comisión 24122 - Grupo 2
 Para poder hacerlo funcional se debe clonar el repo y dentro de la carpeta hacer:
 
 ```
-npm express
+npm i express
 ```
-npm mysql2
+npm i mysql2
 ```
 npm install dotenv
 ```

@@ -34,19 +34,19 @@ const getPersona = (req, res) => {
    }) ;
 };
 
-/*
-const updateMovie = (req, res) => {
+const updatePersona = (req, res) => {
    //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
    const {id} = req.params;
-   const {title, director, anio} = req.body;
-   const sql = "update movies set title = ?, director = ?, anio = ? where id = ?";
+   const {nombre, apellido, direccion, telefono, email} = req.body;
+   const sql = "update movies set nombre = ?, apellido = ?, direccion = ?, telefono = ?, email = ? where id = ?";
    // el metodo query recibe la sentencia de sql y devuelve el resultado en results
-   db.query(sql, [title, director, anio, id], (err, results) => {
+   db.query(sql, [nombre, apellido, direccion, telefono, email], (err, results) => {
     if (err) throw err;
-    res.json({message: 'Pelicula actualizada'});
+    res.json({message: 'Persona actualizada'});
    }) ;
 };
 
+/*
 const deleteMovie = (req, res) => {
    //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
    const {id} = req.params;
@@ -59,4 +59,4 @@ const deleteMovie = (req, res) => {
 };
 */
 
- module.exports = {getPersonas, getPersona, createPersona};
+ module.exports = {getPersonas, getPersona, createPersona, updatePersona};

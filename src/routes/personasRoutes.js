@@ -8,7 +8,7 @@ const personasController = require('../controllers/personasController');
 router.get('/', personasController.getPersonas);
 router.get('/:id', personasController.getPersona);
 router.post('/', personasController.createPersona);
-//router.put('/:id', personasController.updatePersona);
+router.put('/:id', personasController.updatePersona);
 //router.delete('/:id', personasController.deletePersona);
 
 // Exporto el router para que pueda ser utilizado en otros archivos
