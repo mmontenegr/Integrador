@@ -38,9 +38,9 @@ const updatePersona = (req, res) => {
    //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
    const {id} = req.params;
    const {nombre, apellido, direccion, telefono, mail} = req.body;
-   const sql = "update movies set nombre = ?, apellido = ?, direccion = ?, telefono = ?, email = ? where id = ?";
+   const sql = "update t_personas set nombre =?, apellido =?, direccion =?, telefono =?, mail =? where id_persona = ?";
    // el metodo query recibe la sentencia de sql y devuelve el resultado en results
-   db.query(sql, [nombre, apellido, direccion, telefono, mail], (err, results) => {
+   db.query(sql, [nombre, apellido, direccion, telefono, mail, id], (err, results) => {
     if (err) throw err;
     res.json({message: 'Persona actualizada'});
    }) ;
