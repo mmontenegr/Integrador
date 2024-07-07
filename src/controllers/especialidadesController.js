@@ -35,10 +35,10 @@ const getEspecialidad = (req, res) => {
  const updateEspecialidad = (req, res) => {
    //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
    const {id} = req.params;
-   const {descripcion} = req.body;
-   const sql = "update t_especialidades set descripcion = ? where id_especialidad = ?";
+   const {x_especialidad, descripcion} = req.body;
+   const sql = "update t_especialidades set x_especialidad = ?, descripcion = ? where id_especialidad = ?";
    // el metodo query recibe la sentencia de sql y devuelve el resultado en results
-   db.query(sql, [descripcion, id], (err, results) => {
+   db.query(sql, [x_especialidad, descripcion, id], (err, results) => {
     if (err) throw err;
     res.json({message: 'Especialidad actualizada'});
    }) ;
