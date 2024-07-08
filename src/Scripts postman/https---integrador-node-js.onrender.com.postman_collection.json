@@ -1,0 +1,321 @@
+{
+	"info": {
+		"_postman_id": "7559f027-d3c3-47ad-92ee-3cf64d0b7555",
+		"name": "https://integrador-node-js.onrender.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14725265"
+	},
+	"item": [
+		{
+			"name": "RecuperarEspecialidades",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://integrador-node-js.onrender.com/especialidades",
+					"protocol": "https",
+					"host": [
+						"integrador-node-js",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"especialidades"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RecuperarEspecialidad",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://integrador-node-js.onrender.com/especialidades/15",
+					"protocol": "https",
+					"host": [
+						"integrador-node-js",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"especialidades",
+						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NuevaEspecialidad",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"x_especialidad\": \"Cirugia\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://integrador-node-js.onrender.com/especialidades",
+					"protocol": "https",
+					"host": [
+						"integrador-node-js",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"especialidades"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza Especialidad",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"x_especialidad\": \"Cirugia Geeral\",\r\n    \"descripción\": \"Cambio desde la web\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://integrador-node-js.onrender.com/especialidades/11",
+					"protocol": "https",
+					"host": [
+						"integrador-node-js",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"especialidades",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina Especialidad",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://integrador-node-js.onrender.com/especialidades/21",
+					"protocol": "https",
+					"host": [
+						"integrador-node-js",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"especialidades",
+						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RecuperarServicios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://integrador-node-js.onrender.com/servicios",
+					"protocol": "https",
+					"host": [
+						"integrador-node-js",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"servicios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RecuperarProfesionales",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://integrador-node-js.onrender.com/profesionales",
+					"protocol": "https",
+					"host": [
+						"integrador-node-js",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"profesionales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RecuperarPersonas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://integrador-node-js.onrender.com/personas",
+					"protocol": "https",
+					"host": [
+						"integrador-node-js",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"personas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Personas",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nombre\": \"Juan\",\r\n        \"apellido\": \"López\",\r\n        \"direccion\": \"\",\r\n        \"telefono\": \"\",\r\n        \"email\": \"\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://integrador-node-js.onrender.com/personas/2",
+					"protocol": "https",
+					"host": [
+						"integrador-node-js",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"personas",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RecuperarUsuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://integrador-node-js.onrender.com/usuarios",
+					"protocol": "https",
+					"host": [
+						"integrador-node-js",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RecuperarContactos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://integrador-node-js.onrender.com/contactos",
+					"protocol": "https",
+					"host": [
+						"integrador-node-js",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"contactos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"mariela\",\r\n    \"password\": \"clave\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://integrador-node-js.onrender.com/auth/register",
+					"protocol": "https",
+					"host": [
+						"integrador-node-js",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"mariela\",\r\n    \"password\": \"clave\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://integrador-node-js.onrender.com/auth/login",
+					"protocol": "https",
+					"host": [
+						"integrador-node-js",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
