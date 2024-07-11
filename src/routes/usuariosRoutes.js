@@ -8,8 +8,8 @@ const usuariosController = require('../controllers/usuariosController');
 router.get('/', usuariosController.getUsuarios);
 router.get('/:id', usuariosController.getUsuario);
 router.post('/', usuariosController.createUsuario);
-//router.put('/:id', UsuariosController.updateUsuario);
-//router.delete('/:id', UsuariosController.deleteUsuario);
+router.put('/:id', usuariosController.updateUsuario);
+router.delete('/:id', usuariosController.deleteUsuario);
 
 // Exporto el router para que pueda ser utilizado en otros archivos
 module.exports = router;

@@ -32,29 +32,27 @@ const getUsuario = (req, res) => {
    }) ;
 };
 
-/*
-const updateMovie = (req, res) => {
+const updateUsuario = (req, res) => {
    //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
    const {id} = req.params;
-   const {title, director, anio} = req.body;
-   const sql = "update movies set title = ?, director = ?, anio = ? where id = ?";
+   const {id_persona, usuario, contraseña, recordatorio_contraseña} = req.body;
+   const sql = "update t_usuarios set id_persona = ?, usuario = ?, contraseña = ?, recordatorio_contraseña = ? where id_usuario = ?";
    // el metodo query recibe la sentencia de sql y devuelve el resultado en results
-   db.query(sql, [title, director, anio, id], (err, results) => {
+   db.query(sql, [id_persona, usuario, contraseña, recordatorio_contraseña, id], (err, results) => {
     if (err) throw err;
-    res.json({message: 'Pelicula actualizada'});
+    res.json({message: 'Usuario actualizado'});
    }) ;
-};
+}
 
-const deleteMovie = (req, res) => {
-   //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
+
+const deleteUsuario = (req, res) => {
    const {id} = req.params;
-   const sql = "delete from movies where id = ?";
+   const sql = "delete from t_usuarios where id_usuario = ?";
    // el metodo query recibe la sentencia de sql y devuelve el resultado en results
    db.query(sql, [id], (err, results) => {
     if (err) throw err;
-    res.json({message: 'Pelicula eliminada'});
+    res.json({message: 'Usuario eliminado'});
    }) ;
 };
-*/
 
- module.exports = {getUsuarios, getUsuario, createUsuario};
+ module.exports = {getUsuarios, getUsuario, createUsuario, updateUsuario, deleteUsuario};

@@ -46,17 +46,15 @@ const updatePersona = (req, res) => {
    }) ;
 };
 
-/*
-const deleteMovie = (req, res) => {
+const deletePersona = (req, res) => {
    //El ? es un marcador de posición que será reemplazado por el valor de id para evitar inyecciones SQL
    const {id} = req.params;
-   const sql = "delete from movies where id = ?";
+   const sql = "delete from t_personas where id_persona = ?";
    // el metodo query recibe la sentencia de sql y devuelve el resultado en results
    db.query(sql, [id], (err, results) => {
     if (err) throw err;
-    res.json({message: 'Pelicula eliminada'});
+    res.json({message: 'Persona eliminada'});
    }) ;
 };
-*/
 
- module.exports = {getPersonas, getPersona, createPersona, updatePersona};
+ module.exports = {getPersonas, getPersona, createPersona, updatePersona, deletePersona};
